@@ -81,7 +81,7 @@
 							{
 								"source": {
 									"name": "1980",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -93,7 +93,7 @@
 							{
 								"source": {
 									"name": "1981",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -105,7 +105,7 @@
 							{
 								"source": {
 									"name": "1982",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -117,7 +117,7 @@
 							{
 								"source": {
 									"name": "1983",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -129,7 +129,7 @@
 							{
 								"source": {
 									"name": "1984",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -141,7 +141,7 @@
 							{
 								"source": {
 									"name": "1985",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -153,7 +153,7 @@
 							{
 								"source": {
 									"name": "1986",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -165,7 +165,7 @@
 							{
 								"source": {
 									"name": "1987",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -177,7 +177,7 @@
 							{
 								"source": {
 									"name": "1988",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -189,7 +189,7 @@
 							{
 								"source": {
 									"name": "1989",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -201,7 +201,7 @@
 							{
 								"source": {
 									"name": "1990",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -213,7 +213,7 @@
 							{
 								"source": {
 									"name": "1991",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -225,7 +225,7 @@
 							{
 								"source": {
 									"name": "1992",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -237,7 +237,7 @@
 							{
 								"source": {
 									"name": "1993",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -249,7 +249,7 @@
 							{
 								"source": {
 									"name": "1994",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -261,7 +261,7 @@
 							{
 								"source": {
 									"name": "1995",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -273,7 +273,7 @@
 							{
 								"source": {
 									"name": "1996",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -285,7 +285,7 @@
 							{
 								"source": {
 									"name": "1997",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -297,7 +297,7 @@
 							{
 								"source": {
 									"name": "1998",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -309,7 +309,7 @@
 							{
 								"source": {
 									"name": "1999",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -321,7 +321,7 @@
 							{
 								"source": {
 									"name": "2000",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -333,7 +333,7 @@
 							{
 								"source": {
 									"name": "2001",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -345,7 +345,7 @@
 							{
 								"source": {
 									"name": "2002",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -357,7 +357,7 @@
 							{
 								"source": {
 									"name": "2003",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -369,7 +369,7 @@
 							{
 								"source": {
 									"name": "2004",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -381,7 +381,7 @@
 							{
 								"source": {
 									"name": "2005",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -393,7 +393,7 @@
 							{
 								"source": {
 									"name": "2006",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -405,7 +405,7 @@
 							{
 								"source": {
 									"name": "2007",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -417,7 +417,7 @@
 							{
 								"source": {
 									"name": "2008",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -429,7 +429,7 @@
 							{
 								"source": {
 									"name": "2009",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -441,7 +441,7 @@
 							{
 								"source": {
 									"name": "2010",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -453,7 +453,7 @@
 							{
 								"source": {
 									"name": "2011",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -465,7 +465,7 @@
 							{
 								"source": {
 									"name": "2012",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -477,7 +477,7 @@
 							{
 								"source": {
 									"name": "2013",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -489,7 +489,7 @@
 							{
 								"source": {
 									"name": "2014",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -501,7 +501,7 @@
 							{
 								"source": {
 									"name": "2015",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -513,7 +513,7 @@
 							{
 								"source": {
 									"name": "2016",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -525,7 +525,7 @@
 							{
 								"source": {
 									"name": "2017",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -537,7 +537,7 @@
 							{
 								"source": {
 									"name": "2018",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -549,7 +549,7 @@
 							{
 								"source": {
 									"name": "2019",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -561,7 +561,7 @@
 							{
 								"source": {
 									"name": "2020",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -573,7 +573,7 @@
 							{
 								"source": {
 									"name": "2021",
-									"type": "Double",
+									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
