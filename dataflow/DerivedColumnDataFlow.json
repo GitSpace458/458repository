@@ -1,0 +1,93 @@
+{
+	"name": "DerivedColumnDataFlow",
+	"properties": {
+		"description": "Derived Column is used generate new columns from the existing one for user need............",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText8",
+						"type": "DatasetReference"
+					},
+					"name": "DerivedSource",
+					"description": "Its is a csv file to use the derived expression. Where we can create the desired columns from the existing one's"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText9",
+						"type": "DatasetReference"
+					},
+					"name": "IncrementedSink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText10",
+						"type": "DatasetReference"
+					},
+					"name": "IncrementSink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ConditionalSplit"
+				},
+				{
+					"name": "DerivedSectionOne"
+				},
+				{
+					"name": "DerivedSectionTwo"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as short,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          {Age } as short,",
+				"          Salary as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> DerivedSource",
+				"DerivedSource split(Salary < 50000,",
+				"     Salary > 50000,",
+				"     disjoint: false) ~> ConditionalSplit@(SalaryIncrementNeed, NoSalaryIncrementNeed)",
+				"ConditionalSplit@SalaryIncrementNeed derive(SalaryDecrement = iif(Salary < 50000, Salary * 0.025, Salary * 0.25),",
+				"          Gender = upper(Gender)) ~> DerivedSectionOne",
+				"ConditionalSplit@NoSalaryIncrementNeed derive(Salary = iif(Salary > 50000, Salary * 0.25, Salary * 0.025)\r",
+				",",
+				"          Gender = upper(Gender)) ~> DerivedSectionTwo",
+				"DerivedSectionOne sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['LowestSalary.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID,",
+				"          Name,",
+				"          Gender,",
+				"          {Age },",
+				"          Salary,",
+				"          SalaryDecrement",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> IncrementedSink1",
+				"DerivedSectionTwo sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['HighestSalarySink'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID,",
+				"          Name,",
+				"          Gender,",
+				"          {Age },",
+				"          Salary",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> IncrementSink2"
+			]
+		}
+	}
+}
