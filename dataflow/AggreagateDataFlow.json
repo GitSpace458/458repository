@@ -17,10 +17,14 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText4",
+						"referenceName": "DelimitedText5",
 						"type": "DatasetReference"
 					},
-					"name": "AggregateOutputSink"
+					"name": "AggregateSink",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -140,8 +144,60 @@
 				"          VarianceOf1985 = variance({1985})) ~> AggreagtingData",
 				"AggreagtingData sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          Country as string,",
+				"          Features as string,",
+				"          Region as string,",
+				"          {1980} as string,",
+				"          {1981} as string,",
+				"          {1982} as string,",
+				"          {1983} as string,",
+				"          {1984} as string,",
+				"          {1985} as string,",
+				"          {1986} as string,",
+				"          {1987} as string,",
+				"          {1988} as string,",
+				"          {1989} as string,",
+				"          {1990} as string,",
+				"          {1991} as string,",
+				"          {1992} as string,",
+				"          {1993} as string,",
+				"          {1994} as string,",
+				"          {1995} as string,",
+				"          {1996} as string,",
+				"          {1997} as string,",
+				"          {1998} as string,",
+				"          {1999} as string,",
+				"          {2000} as string,",
+				"          {2001} as string,",
+				"          {2002} as string,",
+				"          {2003} as string,",
+				"          {2004} as string,",
+				"          {2005} as string,",
+				"          {2006} as string,",
+				"          {2007} as string,",
+				"          {2008} as string,",
+				"          {2009} as string,",
+				"          {2010} as string,",
+				"          {2011} as string,",
+				"          {2012} as string,",
+				"          {2013} as string,",
+				"          {2014} as string,",
+				"          {2015} as string,",
+				"          {2016} as string,",
+				"          {2017} as string,",
+				"          {2018} as string,",
+				"          {2019} as string,",
+				"          {2020} as string,",
+				"          {2021} as string",
+				"     ),",
+				"     partitionFileNames:['AggregateSinkFile'],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> AggregateOutputSink"
+				"     skipDuplicateMapOutputs: true,",
+				"     outputAssertFailedRows: true,",
+				"     assertFailure_container: 'hemanthcontainer1',",
+				"     assertFailure_folderPath: 'LogsHyper',",
+				"     partitionBy('hash', 1)) ~> AggregateSink"
 			]
 		}
 	}
