@@ -5,6 +5,7 @@
 		"activities": [
 			{
 				"name": "JoinConditionPipeline",
+				"description": "This inner join pipe line .but we have many pipe line use .when they need it...............",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
