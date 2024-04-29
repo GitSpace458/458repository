@@ -76,7 +76,7 @@
 				"     partitionBy('hash', 1)) ~> IncrementedSink1",
 				"DerivedSectionTwo sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['HighestSalarySink'],",
+				"     partitionFileNames:['HighestSalarySink.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
