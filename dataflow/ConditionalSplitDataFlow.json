@@ -1,0 +1,33 @@
+{
+	"name": "ConditionalSplitDataFlow",
+	"properties": {
+		"description": "Which is used to separate the data by the condition",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText8",
+						"type": "DatasetReference"
+					},
+					"name": "ConditionalSplitData",
+					"description": "Used to separate the data from the condition"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          ID as string,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          {Age } as string,",
+				"          Salary as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> ConditionalSplitData"
+			]
+		}
+	}
+}
