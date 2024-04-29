@@ -5,7 +5,6 @@
 		"activities": [
 			{
 				"name": "DerivedDataFlow",
-				"description": "It is used to make the created new columns from the old columns then it is used as new data for analysis",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
