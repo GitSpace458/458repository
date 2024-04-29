@@ -1,0 +1,34 @@
+{
+	"name": "DerivedPipeline",
+	"properties": {
+		"description": "It is used to make the created new columns from the old columns then it is used as new data for analysis",
+		"activities": [
+			{
+				"name": "DerivedDataFlow",
+				"description": "It is used to make the created new columns from the old columns then it is used as new data for analysis",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DerivedColumnDataFlow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
