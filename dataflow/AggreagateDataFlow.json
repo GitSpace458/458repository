@@ -154,7 +154,7 @@
 				"          VarianceOf1985 = toDouble(VarianceOf1985)) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
-				"     partitionFileNames:['AggregateSinkData'],",
+				"     partitionFileNames:['AggregateSinkData.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
