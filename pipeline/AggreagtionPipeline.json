@@ -5,22 +5,16 @@
 		"activities": [
 			{
 				"name": "AggregateDataFlow",
-				"description": "This is Dataflow created for the Aggregation ",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
-					"retry": 2,
+					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Aggregation",
-						"value": "Aggregating the Dataflow"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "AggreagateDataFlow",
