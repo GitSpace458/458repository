@@ -7,26 +7,82 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText13",
+						"referenceName": "AzureTestingData",
 						"type": "DatasetReference"
 					},
 					"name": "ConditionalSplitData",
 					"description": "Used to separate the data from the condition"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ClassADetails",
+						"type": "DatasetReference"
+					},
+					"name": "ClassRoomA"
+				},
+				{
+					"dataset": {
+						"referenceName": "ClassRoomB",
+						"type": "DatasetReference"
+					},
+					"name": "ClassRoomB"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ClassASeperation"
+				},
+				{
+					"name": "ClassArrangementForA"
+				},
+				{
+					"name": "ClassArrangementForB"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
-				"          ID as string,",
+				"          ID as short,",
 				"          Name as string,",
 				"          Gender as string,",
-				"          {Age } as string,",
-				"          Salary as string",
+				"          {Age } as short,",
+				"          Salary as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> ConditionalSplitData"
+				"     ignoreNoFilesFound: false) ~> ConditionalSplitData",
+				"ConditionalSplitData split(ID<460,",
+				"     ID>460,",
+				"     disjoint: false) ~> ClassASeperation@(ClassA, ClassB)",
+				"ClassASeperation@ClassA sort(asc(ID, true)) ~> ClassArrangementForA",
+				"ClassASeperation@ClassB sort(asc(ID, true)) ~> ClassArrangementForB",
+				"ClassArrangementForA sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['ClassA.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID,",
+				"          Name,",
+				"          Gender,",
+				"          {Age },",
+				"          Salary",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> ClassRoomA",
+				"ClassArrangementForB sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['ClassB.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID,",
+				"          Name,",
+				"          Gender,",
+				"          {Age },",
+				"          Salary",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> ClassRoomB"
 			]
 		}
 	}
