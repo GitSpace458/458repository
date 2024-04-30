@@ -6,8 +6,14 @@
 			"referenceName": "ParameterizedTesting",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"StorageAccountName": "hemanthstorageaccount",
-				"EndSuffixName": "core.windows.net"
+				"StorageAccountName": {
+					"value": "@dataset().StorageAccountName",
+					"type": "Expression"
+				},
+				"EndSuffixName": {
+					"value": "@dataset().EndSuffixName",
+					"type": "Expression"
+				}
 			}
 		},
 		"parameters": {
@@ -19,6 +25,12 @@
 			},
 			"FileName": {
 				"type": "string"
+			},
+			"StorageAccountName": {
+				"type": "String"
+			},
+			"EndSuffixName": {
+				"type": "String"
 			}
 		},
 		"folder": {
