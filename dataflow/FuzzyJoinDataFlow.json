@@ -1,0 +1,82 @@
+{
+	"name": "FuzzyJoinDataFlow",
+	"properties": {
+		"description": "This is used to apply the join condition like in SQL",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "RightJoinData",
+						"type": "DatasetReference"
+					},
+					"name": "RightJoinDataExtracter"
+				},
+				{
+					"dataset": {
+						"referenceName": "LeftJoinData",
+						"type": "DatasetReference"
+					},
+					"name": "LeftJoinDataExtracter"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "JoinDatasetsink",
+						"type": "DatasetReference"
+					},
+					"name": "JoinDataSink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "JoinDataFlowActivity"
+				},
+				{
+					"name": "Arranging"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as short,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          {Age } as short,",
+				"          Salary as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> RightJoinDataExtracter",
+				"source(output(",
+				"          ID as short,",
+				"          Name as string,",
+				"          Postion as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> LeftJoinDataExtracter",
+				"RightJoinDataExtracter, LeftJoinDataExtracter join(RightJoinDataExtracter@ID == LeftJoinDataExtracter@ID,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> JoinDataFlowActivity",
+				"JoinDataFlowActivity sort(asc(RightJoinDataExtracter@ID, true)) ~> Arranging",
+				"Arranging sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['Joinsink.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID = RightJoinDataExtracter@ID,",
+				"          Name = RightJoinDataExtracter@Name,",
+				"          Gender,",
+				"          {Age },",
+				"          Salary,",
+				"          Postion",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> JoinDataSink"
+			]
+		}
+	}
+}
