@@ -20,7 +20,15 @@
 					"name": "LeftJoinDataExtracter"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "FuzzyJoinFinalResult",
+						"type": "DatasetReference"
+					},
+					"name": "FuzzyJoinSink"
+				}
+			],
 			"transformations": [
 				{
 					"name": "LeftJoinFuzzyCasting"
@@ -55,7 +63,20 @@
 				"     matchType:'fuzzy',",
 				"     ignoreSpaces: false,",
 				"     scoreColumn:'Percentage of Matching',",
-				"     broadcast: 'off')~> FuzzyJoinExtracter"
+				"     broadcast: 'off')~> FuzzyJoinExtracter",
+				"FuzzyJoinExtracter sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['FuzzyJoinFinal.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          ID = RightJoinDataExtracter@ID,",
+				"          Name = RightJoinDataExtracter@Name,",
+				"          Postion = RightJoinDataExtracter@Postion,",
+				"          Postion = LeftJoinDataExtracter@Postion,",
+				"          {Percentage of Matching}",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> FuzzyJoinSink"
 			]
 		}
 	}
