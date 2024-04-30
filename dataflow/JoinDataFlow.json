@@ -2,6 +2,9 @@
 	"name": "JoinDataFlow",
 	"properties": {
 		"description": "This is used to apply the join condition like in SQL",
+		"folder": {
+			"name": "DataFlowFolder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [

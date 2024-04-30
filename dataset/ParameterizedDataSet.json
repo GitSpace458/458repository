@@ -21,6 +21,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "DatasetFolder"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

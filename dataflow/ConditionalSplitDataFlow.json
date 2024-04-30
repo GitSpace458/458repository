@@ -2,6 +2,9 @@
 	"name": "ConditionalSplitDataFlow",
 	"properties": {
 		"description": "Which is used to separate the data by the condition",
+		"folder": {
+			"name": "DataFlowFolder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [

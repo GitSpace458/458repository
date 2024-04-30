@@ -2,6 +2,9 @@
 	"name": "ParametrizedTesting",
 	"properties": {
 		"description": "We have to fully parametrize the dataset and linked services with file path for now ",
+		"folder": {
+			"name": "DataFlowFolder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [

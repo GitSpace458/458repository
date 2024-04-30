@@ -2,6 +2,9 @@
 	"name": "AggreagateDataFlow",
 	"properties": {
 		"description": "Means it is used to convert the columns of data into Aggregated Data into different forms like max min count avg sum ..... ",
+		"folder": {
+			"name": "DataFlowFolder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [

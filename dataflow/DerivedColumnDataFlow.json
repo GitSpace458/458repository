@@ -2,6 +2,9 @@
 	"name": "DerivedColumnDataFlow",
 	"properties": {
 		"description": "Derived Column is used generate new columns from the existing one for user need............",
+		"folder": {
+			"name": "DataFlowFolder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
@@ -57,8 +60,7 @@
 				"     disjoint: false) ~> ConditionalSplit@(SalaryIncrementNeed, NoSalaryIncrementNeed)",
 				"ConditionalSplit@SalaryIncrementNeed derive(SalaryDecrement = iif(Salary < 50000, Salary * 0.025, Salary * 0.25),",
 				"          Gender = upper(Gender)) ~> DerivedSectionOne",
-				"ConditionalSplit@NoSalaryIncrementNeed derive(Salary = iif(Salary > 50000, Salary * 0.25, Salary * 0.025)\r",
-				",",
+				"ConditionalSplit@NoSalaryIncrementNeed derive(Salary = iif(Salary > 50000, Salary * 0.25, Salary * 0.025),",
 				"          Gender = upper(Gender)) ~> DerivedSectionTwo",
 				"DerivedSectionOne sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
