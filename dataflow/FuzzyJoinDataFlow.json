@@ -7,47 +7,29 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "RightJoinData",
+						"referenceName": "RightFuzzyJoin",
 						"type": "DatasetReference"
 					},
 					"name": "RightJoinDataExtracter"
 				},
 				{
 					"dataset": {
-						"referenceName": "LeftJoinData",
+						"referenceName": "LeftFuzzyJoin",
 						"type": "DatasetReference"
 					},
 					"name": "LeftJoinDataExtracter"
 				}
 			],
-			"sinks": [
-				{
-					"dataset": {
-						"referenceName": "JoinDatasetsink",
-						"type": "DatasetReference"
-					},
-					"name": "JoinDataSink"
-				}
-			],
+			"sinks": [],
 			"transformations": [
 				{
-					"name": "JoinDataFlowActivity"
+					"name": "LeftJoinFuzzyCasting"
 				},
 				{
-					"name": "Arranging"
+					"name": "FuzzyJoinExtracter"
 				}
 			],
 			"scriptLines": [
-				"source(output(",
-				"          ID as short,",
-				"          Name as string,",
-				"          Gender as string,",
-				"          {Age } as short,",
-				"          Salary as integer",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> RightJoinDataExtracter",
 				"source(output(",
 				"          ID as short,",
 				"          Name as string,",
@@ -55,27 +37,25 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> LeftJoinDataExtracter",
-				"RightJoinDataExtracter, LeftJoinDataExtracter join(RightJoinDataExtracter@ID == LeftJoinDataExtracter@ID,",
-				"     joinType:'inner',",
-				"     matchType:'exact',",
-				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> JoinDataFlowActivity",
-				"JoinDataFlowActivity sort(asc(RightJoinDataExtracter@ID, true)) ~> Arranging",
-				"Arranging sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     partitionFileNames:['Joinsink.csv'],",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     mapColumn(",
-				"          ID = RightJoinDataExtracter@ID,",
-				"          Name = RightJoinDataExtracter@Name,",
-				"          Gender,",
-				"          {Age },",
-				"          Salary,",
-				"          Postion",
+				"     ignoreNoFilesFound: false) ~> RightJoinDataExtracter",
+				"source(output(",
+				"          ID as string,",
+				"          Name as string,",
+				"          Postion as string",
 				"     ),",
-				"     partitionBy('hash', 1)) ~> JoinDataSink"
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> LeftJoinDataExtracter",
+				"LeftJoinDataExtracter cast(output(",
+				"          ID as short",
+				"     ),",
+				"     errors: true) ~> LeftJoinFuzzyCasting",
+				"RightJoinDataExtracter, LeftJoinFuzzyCasting join(fuzzyCompare(RightJoinDataExtracter@Postion, LeftJoinDataExtracter@Postion, 82.00),",
+				"     joinType:'inner',",
+				"     matchType:'fuzzy',",
+				"     ignoreSpaces: false,",
+				"     scoreColumn:'Percentage of Matching',",
+				"     broadcast: 'off')~> FuzzyJoinExtracter"
 			]
 		}
 	}
