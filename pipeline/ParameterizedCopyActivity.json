@@ -64,7 +64,7 @@
 								"type": "Expression"
 							},
 							"FileName": {
-								"value": "@pipeline().parameters.FileName",
+								"value": "@pipeline().parameters.Filename",
 								"type": "Expression"
 							},
 							"StorageAccountName": {
@@ -91,10 +91,6 @@
 								"value": "@pipeline().parameters.DirectoryName",
 								"type": "Expression"
 							},
-							"FileName": {
-								"value": "@pipeline().parameters.FileName",
-								"type": "Expression"
-							},
 							"StorageAccountName": {
 								"value": "@pipeline().parameters.StorageName",
 								"type": "Expression"
@@ -116,13 +112,13 @@
 				"type": "string"
 			},
 			"ContainerName": {
-				"type": "string"
+				"type": "String"
 			},
 			"DirectoryName": {
-				"type": "string"
+				"type": "String"
 			},
-			"FileName": {
-				"type": "string"
+			"Filename": {
+				"type": "String"
 			}
 		},
 		"annotations": []
