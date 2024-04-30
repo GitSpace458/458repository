@@ -1,0 +1,38 @@
+{
+	"name": "RightFuzzyJoin",
+	"properties": {
+		"description": "It is used to do fuzzy matching .which is used to join in percentage of how accurate the data will be matched..........................",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "RightJoinFuzzyStreamer.csv",
+				"folderPath": "HyperInputDirectory",
+				"container": "hemanthcontainer1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Postion",
+				"type": "String"
+			}
+		]
+	}
+}
