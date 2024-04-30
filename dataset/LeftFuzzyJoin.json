@@ -1,0 +1,38 @@
+{
+	"name": "LeftFuzzyJoin",
+	"properties": {
+		"description": "This is used as the left streamer of Fuzzy Join",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "LeftFuzzyJoinStreamer.csv",
+				"folderPath": "HyperInputDirectory",
+				"container": "hemanthcontainer1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Postion",
+				"type": "String"
+			}
+		]
+	}
+}
