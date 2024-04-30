@@ -1,0 +1,20 @@
+{
+	"name": "ParametrizedTesting",
+	"properties": {
+		"description": "We have to fully parametrize the dataset and linked services with file path for now ",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "ParameterizedTesting"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> ParameterizedTesting"
+			]
+		}
+	}
+}
