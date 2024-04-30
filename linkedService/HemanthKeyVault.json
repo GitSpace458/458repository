@@ -1,0 +1,11 @@
+{
+	"name": "HemanthKeyVault",
+	"properties": {
+		"description": "This is used to the keyvault ",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://HemanthKeyVaultNew.vault.azure.net/"
+		}
+	}
+}
