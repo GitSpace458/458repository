@@ -91,6 +91,10 @@
 								"value": "@pipeline().parameters.DirectoryName",
 								"type": "Expression"
 							},
+							"FileName": {
+								"value": "@pipeline().parameters.Filename",
+								"type": "Expression"
+							},
 							"StorageAccountName": {
 								"value": "@pipeline().parameters.StorageName",
 								"type": "Expression"
