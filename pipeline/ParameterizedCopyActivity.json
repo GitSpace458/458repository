@@ -14,7 +14,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "@{pipeline().parameters.ContainerName}/@{pipeline().parameters.DirectoryName}/@{pipeline().parameters.FileName}"
+					},
+					{
+						"name": "Destination",
+						"value": "hemanthcontainer1/HyperOutputDirectory/"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
@@ -36,7 +45,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": "SalaryKnack.csv"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -79,7 +88,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText6",
+						"referenceName": "OutputStorage",
 						"type": "DatasetReference"
 					}
 				]
