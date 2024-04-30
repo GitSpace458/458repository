@@ -1,0 +1,39 @@
+{
+	"name": "FuzzyJoinPipeline",
+	"properties": {
+		"description": "This is the fuzzy matching is used to compare the data column with a threshold where it would be used to retrieve ",
+		"activities": [
+			{
+				"name": "FuzzyMatchingPipeline",
+				"description": "This is the fuzzy matching is used to compare the data column with a threshold where it would be used to retrieve ",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "FuzzyMatching",
+						"value": "Hi this Hemanth Fuzzy Matching is completed................."
+					}
+				],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "FuzzyJoinDataFlow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
