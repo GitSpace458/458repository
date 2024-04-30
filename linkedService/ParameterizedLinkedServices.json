@@ -1,0 +1,19 @@
+{
+	"name": "ParameterizedLinkedServices",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "We are going to Parameterized the Linked Service and File Path for the Data Flow",
+		"parameters": {
+			"LinkedServicesParameter": {
+				"type": "string",
+				"defaultValue": "hemanthstorageaccount"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=hemanthstorageaccount;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ5ODNDQTZDLUEzMUUtNEY3OS04MDcxLTk4NUEzQjE3ODA0MV9iZjA3ZmFhZS1hNjc2LTQ0YTEtOGRkYi1hOTA3NDM1YmE1OGEiDQp9"
+		}
+	}
+}
