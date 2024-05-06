@@ -1,0 +1,25 @@
+{
+	"name": "DataBricksExtraction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataBricksExtraction",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "HyperInputDirectory",
+				"container": "hemanthcontainer1"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"encodingName": "UTF-8",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
