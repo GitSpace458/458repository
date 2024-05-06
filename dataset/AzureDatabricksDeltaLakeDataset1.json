@@ -1,0 +1,65 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDatabricksDeltaLake1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "hemanth",
+			"table": "parquet_table"
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "long"
+			},
+			{
+				"name": "first_name",
+				"type": "string"
+			},
+			{
+				"name": "last_name",
+				"type": "string"
+			},
+			{
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"name": "gender",
+				"type": "string"
+			},
+			{
+				"name": "ip_address",
+				"type": "string"
+			},
+			{
+				"name": "cc",
+				"type": "string"
+			},
+			{
+				"name": "country",
+				"type": "string"
+			},
+			{
+				"name": "birthdate",
+				"type": "string"
+			},
+			{
+				"name": "salary",
+				"type": "double"
+			},
+			{
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"name": "comments",
+				"type": "string"
+			}
+		]
+	}
+}
