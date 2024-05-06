@@ -1,0 +1,16 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=hyperluvMAC\\HYPERSQLSERVER;initial catalog=Hemanth;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4NmQ1NzE4Mi0wOThiLTQ1YzAtYmI0NC0xYzc4Y2RlZTdjN2IiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SelfHostedIntegration",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
